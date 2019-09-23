@@ -21,23 +21,33 @@ const routes = [{
     component: LayoutDefault,
     children: [{
         path: '',
+        name: 'home',
         component: defaultLandingPage
       },
       {
         path: 'login',
         name: 'login',
-        component: authLogin
+        component: authLogin,
+        meta: {
+          requiresVisitor: true,
+        }
       },
       {
         path: 'register',
         name: 'register',
-        component: authRegister
+        component: authRegister,
+        meta: {
+          requiresVisitor: true,
+        }
       },
     ]
   },
   {
     path: '/dashboard',
     component: LayoutDashboard,
+    meta: {
+      requiresAuth: true,
+    },
     children: [{
         path: '',
         name: 'dashboard-index',

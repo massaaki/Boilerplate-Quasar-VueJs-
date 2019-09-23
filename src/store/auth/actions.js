@@ -24,8 +24,8 @@ export function retrieveToken({
       })
       .then(response => {
         const token = response.data.access_token;
-        localStorage.setItem("access_token", token);
         commit("retrieveveToken", token);
+        localStorage.setItem("access_token", token);
         resolve(response);
 
       })
