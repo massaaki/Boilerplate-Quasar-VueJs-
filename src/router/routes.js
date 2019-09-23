@@ -6,6 +6,7 @@ import LayoutDashboard from 'layouts/Dashboard.vue'
 import dashboardIndex from 'pages/dashboard/index.vue'
 import dashboardList from 'pages/dashboard/list.vue'
 import dashboardProfile from 'pages/dashboard/profile.vue'
+import dashboardSetting from 'pages/dashboard/setting.vue'
 
 //Pages-Auth
 import authLogin from 'pages/auth/login.vue'
@@ -51,6 +52,11 @@ const routes = [{
         path: 'list',
         name: 'dashboard-list',
         component: dashboardList
+      },
+      {
+        path: 'setting',
+        name: 'dashboard-setting',
+        component: dashboardSetting
       }
     ]
   }
