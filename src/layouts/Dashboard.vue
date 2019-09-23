@@ -9,8 +9,7 @@
             <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" />
           </q-avatar>&nbsp; App
         </q-toolbar-title>
-
-        <q-btn dense flat round icon="person_pin" @click="right = !right" />
+        <q-btn dense flat round icon="person_pin" style="font-size:20px;" @click="right = !right" />
       </q-toolbar>
     </q-header>
 
@@ -45,7 +44,30 @@
         <div class="row justify-center">
           <q-avatar color="primary" text-color="white">M</q-avatar>
         </div>
-        <div class="row justify-center">Mauricio Massaaki</div>
+        <div class="row justify-center">
+          <div class="profile-information">Mauricio Massaaki</div>
+        </div>
+
+        <div class="profile-options">
+          <q-list>
+            <q-item to="#">
+              <q-item-section avatar>
+                <q-icon name="build" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Configuração</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item to="#">
+              <q-item-section avatar>
+                <q-icon name="subdirectory_arrow_left" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Logout</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </div>
       </div>
     </q-drawer>
 
@@ -76,5 +98,13 @@ export default {
 }
 .profile {
   margin-top: 30px;
+}
+.profile-options {
+  margin-top: 30px;
+  color: #555;
+}
+.profile-information {
+  color: #555;
+  margin: 15px 0;
 }
 </style>
