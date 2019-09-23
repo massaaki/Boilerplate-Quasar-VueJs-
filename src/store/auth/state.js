@@ -1,3 +1,4 @@
 export default {
-  foo: "nothing"
+  foo: "nothing",
+  token: localStorage.getItem("access_token") || null,
 }

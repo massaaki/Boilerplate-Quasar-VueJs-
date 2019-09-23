@@ -8,9 +8,10 @@
             Axios Test..: &nbsp;
             <b>{{foo}}</b>
           </p>
+
           <div class="q-pa-md">
             <q-form @submit="onSubmit" class="q-gutter-md">
-              <q-input filled type="email" v-model="name" label="E-mail" />
+              <q-input filled type="email" v-model="username" label="E-mail" />
               <q-input filled type="password" v-model="password" label="Password" />
               <div>
                 <q-btn
@@ -25,6 +26,10 @@
           </div>
         </q-card>
       </div>
+      <p>
+        <b>access_token</b>
+        test: {{token}}
+      </p>
     </div>
   </div>
 </template>
@@ -34,13 +39,16 @@ export default {
   name: "authIndex",
   data() {
     return {
-      name: "",
+      username: "",
       password: ""
     };
   },
   computed: {
     foo() {
       return this.$store.state.auth.foo;
+    },
+    token() {
+      return this.$store.state.auth.token;
     }
   },
   mounted() {
@@ -50,7 +58,16 @@ export default {
   methods: {
     onSubmit() {
       console.log("login");
-      console.log("name", this.name, " | Password", this.password);
+      console.log("username", this.username, " | Password", this.password);
+      this.$store
+        .dispatch("auth/retrieveToken", {
+          username: this.username,
+          password: this.password
+        })
+        .then(response => {
+          console.log("token..:", response);
+          this.$router.push({ name: "dashboard-index" });
+        });
     }
   }
 };

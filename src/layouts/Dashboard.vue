@@ -58,7 +58,7 @@
                 <q-item-label>Configuração</q-item-label>
               </q-item-section>
             </q-item>
-            <q-item to="#">
+            <q-item clickable @click="logout">
               <q-item-section avatar>
                 <q-icon name="subdirectory_arrow_left" />
               </q-item-section>
@@ -86,6 +86,15 @@ export default {
       left: false,
       right: false
     };
+  },
+  methods: {
+    logout() {
+      console.log("destroy token");
+
+      this.$store.dispatch("auth/destroyToken").then(response => {
+        this.$router.push({ name: "login" });
+      });
+    }
   }
 };
 </script>
