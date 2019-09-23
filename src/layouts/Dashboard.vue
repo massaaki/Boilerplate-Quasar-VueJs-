@@ -50,7 +50,7 @@
 
         <div class="profile-options">
           <q-list>
-            <q-item to="#">
+            <q-item :to="{name: 'dashboard-setting'}">
               <q-item-section avatar>
                 <q-icon name="build" />
               </q-item-section>
@@ -58,7 +58,7 @@
                 <q-item-label>Configuração</q-item-label>
               </q-item-section>
             </q-item>
-            <q-item clickable @click="logout">
+            <q-item clickable @click="confirm=true">
               <q-item-section avatar>
                 <q-icon name="subdirectory_arrow_left" />
               </q-item-section>
@@ -75,6 +75,20 @@
       <router-view />
     </q-page-container>
 
+    <q-dialog v-model="confirm" persistent>
+      <q-card>
+        <q-card-section class="row items-center">
+          <q-avatar icon="keyboard_return" color="primary" text-color="white"></q-avatar>
+          <span class="q-ml-sm">Tem certeza que deseja sair?</span>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Cancel" color="primary" v-close-popup></q-btn>
+          <q-btn flat label="Sim" color="primary" @click="logout" v-close-popup></q-btn>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
     <q-footer elevated class="bg-grey-8 text-white">footer</q-footer>
   </q-layout>
 </template>
@@ -84,7 +98,8 @@ export default {
   data() {
     return {
       left: false,
-      right: false
+      right: false,
+      confirm: false
     };
   },
   methods: {
