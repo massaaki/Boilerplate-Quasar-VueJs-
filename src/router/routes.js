@@ -9,6 +9,7 @@ import dashboardProfile from 'pages/dashboard/profile.vue'
 
 //Pages-Auth
 import authLogin from 'pages/auth/login.vue'
+import authRegister from 'pages/auth/register.vue'
 
 //Pages-default
 import defaultLandingPage from 'pages/default/landingPage.vue'
@@ -25,6 +26,11 @@ const routes = [{
         path: 'login',
         name: 'login',
         component: authLogin
+      },
+      {
+        path: 'register',
+        name: 'register',
+        component: authRegister
       },
     ]
   },
