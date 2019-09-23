@@ -6,12 +6,16 @@
           <h1 class="row justify-center">Login</h1>
           <div class="q-pa-md">
             <q-form @submit="onSubmit" class="q-gutter-md">
-              <q-input filled v-model="name" label="E-mail" />
-
+              <q-input filled type="email" v-model="name" label="E-mail" />
               <q-input filled type="password" v-model="password" label="Password" />
-
               <div>
-                <q-btn label="Login" type="submit" color="primary" class="full-width q-mt-md" />
+                <q-btn
+                  label="Login"
+                  type="submit"
+                  color="primary"
+                  size="18px"
+                  class="full-width q-mt-md"
+                />
               </div>
             </q-form>
           </div>
@@ -33,6 +37,7 @@ export default {
   methods: {
     onSubmit() {
       console.log("login");
+      console.log("name", this.name, " | Password", this.password);
     }
   }
 };
