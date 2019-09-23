@@ -4,6 +4,7 @@
       <div class="row justify-center">
         <q-card class="my-card">
           <h1 class="row justify-center">Login</h1>
+          <p>{{foo}}</p>
           <div class="q-pa-md">
             <q-form @submit="onSubmit" class="q-gutter-md">
               <q-input filled type="email" v-model="name" label="E-mail" />
@@ -33,6 +34,15 @@ export default {
       name: "",
       password: ""
     };
+  },
+  computed: {
+    foo() {
+      return this.$store.state.auth.foo;
+    }
+  },
+  mounted() {
+    console.log("hello");
+    this.$store.dispatch("auth/getFoo");
   },
   methods: {
     onSubmit() {
