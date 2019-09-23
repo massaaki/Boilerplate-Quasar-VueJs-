@@ -4,7 +4,10 @@
       <div class="row justify-center">
         <q-card class="my-card">
           <h1 class="row justify-center">Login</h1>
-          <p>{{foo}}</p>
+          <p class="row justify-center">
+            Axios Test..: &nbsp;
+            <b>{{foo}}</b>
+          </p>
           <div class="q-pa-md">
             <q-form @submit="onSubmit" class="q-gutter-md">
               <q-input filled type="email" v-model="name" label="E-mail" />
