@@ -1,24 +1,35 @@
 //Layouts
 import LayoutDefault from 'layouts/Default.vue'
 import LayoutDashboard from 'layouts/Dashboard.vue'
-import LayoutDashboardTwo from 'layouts/Dashboard2.vue'
 
-//Pages
+//Pages-dashboard
 import dashboardIndex from 'pages/dashboard/index.vue'
 import dashboardList from 'pages/dashboard/list.vue'
 import dashboardProfile from 'pages/dashboard/profile.vue'
+
+//Pages-Auth
+import authLogin from 'pages/auth/login.vue'
+
+//Pages-default
+import defaultLandingPage from 'pages/default/landingPage.vue'
+
 
 const routes = [{
     path: '/',
     component: LayoutDefault,
     children: [{
-      path: '',
-      component: () => import('pages/auth/login.vue')
-    }]
+        path: '',
+        component: defaultLandingPage
+      },
+      {
+        path: 'login',
+        component: authLogin
+      },
+    ]
   },
   {
     path: '/dashboard',
-    component: LayoutDashboardTwo,
+    component: LayoutDashboard,
     children: [{
         path: '',
         name: 'dashboard-index',
