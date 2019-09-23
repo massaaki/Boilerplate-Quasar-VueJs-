@@ -35,6 +35,26 @@ export function retrieveToken({
   });
 };
 
+export function register(context, data) {
+  return new Promise((resolve, reject) => {
+    axiosInstance
+      .post("register", {
+        name: data.name,
+        email: data.email,
+        password: data.password
+      })
+      .then(response => {
+        const token = response.data.access_token;
+        localStorage.setItem("access_token", token);
+        context.commit("retrieveveToken", token);
+        resolve(response);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
 export function destroyToken(context) {
   axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
   if (context.getters.loggedIn) {
