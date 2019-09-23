@@ -1,22 +1,24 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-page-container>
-      <q-card class="my-card">
-        <h1>Login</h1>
-        <div class="q-pa-md">
-          <q-form @submit="onSubmit" class="q-gutter-md">
-            <q-input filled v-model="name" label="E-mail" />
+  <div id="login" class="row">
+    <div class="col self-center">
+      <div class="row justify-center">
+        <q-card class="my-card">
+          <h1 class="row justify-center">Login</h1>
+          <div class="q-pa-md">
+            <q-form @submit="onSubmit" class="q-gutter-md">
+              <q-input filled v-model="name" label="E-mail" />
 
-            <q-input filled type="password" v-model="password" label="Password" />
+              <q-input filled type="password" v-model="password" label="Password" />
 
-            <div>
-              <q-btn label="Login" type="submit" color="primary" />
-            </div>
-          </q-form>
-        </div>
-      </q-card>
-    </q-page-container>
-  </q-layout>
+              <div>
+                <q-btn label="Login" type="submit" color="primary" class="full-width q-mt-md" />
+              </div>
+            </q-form>
+          </div>
+        </q-card>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -37,4 +39,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#login {
+  height: 100vh;
+  background-color: rgb(240, 240, 240);
+}
+.my-card {
+  max-width: 400px;
+  width: 100%;
+}
 </style>
