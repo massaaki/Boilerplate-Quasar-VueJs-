@@ -1,6 +1,7 @@
 //Layouts
 import LayoutDefault from 'layouts/Default.vue'
 import LayoutDashboard from 'layouts/Dashboard.vue'
+import LayoutDashboardTwo from 'layouts/Dashboard2.vue'
 
 //Pages
 import dashboardIndex from 'pages/dashboard/index.vue'
@@ -12,12 +13,12 @@ const routes = [{
     component: LayoutDefault,
     children: [{
       path: '',
-      component: () => import('pages/auth/index.vue')
+      component: () => import('pages/auth/login.vue')
     }]
   },
   {
     path: '/dashboard',
-    component: LayoutDashboard,
+    component: LayoutDashboardTwo,
     children: [{
         path: '',
         name: 'dashboard-index',
