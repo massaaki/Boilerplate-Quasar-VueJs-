@@ -100,7 +100,8 @@ export default {
   margin-top: 30px;
 }
 .profile-options {
-  margin-top: 30px;
+  border-top: 1px solid rgb(241, 241, 241);
+  margin-top: 15px;
   color: #555;
 }
 .profile-information {
