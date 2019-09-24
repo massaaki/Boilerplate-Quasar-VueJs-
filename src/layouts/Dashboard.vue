@@ -42,10 +42,13 @@
     <q-drawer v-model="right" side="right" bordered>
       <div class="profile">
         <div class="row justify-center">
-          <q-avatar color="primary" text-color="white">{{user.name[0].toUpperCase()}}</q-avatar>
+          <q-avatar
+            color="primary"
+            text-color="white"
+          >{{ user && user.name ? user.name[0].toUpperCase(): ""}}</q-avatar>
         </div>
         <div class="row justify-center">
-          <div class="profile-information">{{user.name}}</div>
+          <div class="profile-information">{{user && user.name ? user.name : ""}}</div>
         </div>
 
         <div class="profile-options">

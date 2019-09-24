@@ -71,7 +71,7 @@ export function register(context, data) {
 };
 
 export function destroyToken(context) {
-  axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
+  // axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
   if (context.getters.loggedIn) {
     return new Promise((resolve, reject) => {
       axiosInstance
