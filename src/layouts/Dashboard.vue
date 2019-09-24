@@ -42,10 +42,10 @@
     <q-drawer v-model="right" side="right" bordered>
       <div class="profile">
         <div class="row justify-center">
-          <q-avatar color="primary" text-color="white">M</q-avatar>
+          <q-avatar color="primary" text-color="white">{{email[0].toUpperCase()}}</q-avatar>
         </div>
         <div class="row justify-center">
-          <div class="profile-information">Mauricio Massaaki</div>
+          <div class="profile-information">{{email}}</div>
         </div>
 
         <div class="profile-options">
@@ -101,6 +101,11 @@ export default {
       right: false,
       confirm: false
     };
+  },
+  computed: {
+    email() {
+      return this.$store.state.auth.email;
+    }
   },
   methods: {
     logout() {

@@ -10,3 +10,8 @@ export function retrieveveToken(state, payload) {
 export function destroyToken(state) {
   state.token = null;
 };
+
+export function setUserEmail(state, payload) {
+  console.log("email..: ", payload);
+  state.email = payload
+}

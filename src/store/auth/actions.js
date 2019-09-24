@@ -25,6 +25,7 @@ export function retrieveToken({
       .then(response => {
         const token = response.data.access_token;
         commit("retrieveveToken", token);
+        commit("setUserEmail", credentials.username);
         localStorage.setItem("access_token", token);
         resolve(response);
 
