@@ -27,13 +27,13 @@
           </q-item-section>
         </q-item>
 
-        <q-item :to="{name: 'dashboard-list'}">
+        <q-item :to="{name: 'dashboard-chart'}">
           <q-item-section avatar>
-            <q-icon name="list" />
+            <q-icon name="bar_chart" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>List</q-item-label>
-            <q-item-label caption>List Itens</q-item-label>
+            <q-item-label>Chart</q-item-label>
+            <q-item-label caption>Chart Sample</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>

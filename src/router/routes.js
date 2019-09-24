@@ -4,7 +4,7 @@ import LayoutDashboard from 'layouts/Dashboard.vue'
 
 //Pages-dashboard
 import dashboardIndex from 'pages/dashboard/index.vue'
-import dashboardList from 'pages/dashboard/list.vue'
+import dashboardChart from 'pages/dashboard/chart.vue'
 import dashboardProfile from 'pages/dashboard/profile.vue'
 import dashboardSetting from 'pages/dashboard/setting.vue'
 
@@ -59,9 +59,9 @@ const routes = [{
         component: dashboardProfile
       },
       {
-        path: 'list',
-        name: 'dashboard-list',
-        component: dashboardList
+        path: 'chart',
+        name: 'dashboard-chart',
+        component: dashboardChart
       },
       {
         path: 'setting',
