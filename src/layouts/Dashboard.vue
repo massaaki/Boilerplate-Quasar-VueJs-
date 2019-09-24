@@ -89,7 +89,9 @@
       </q-card>
     </q-dialog>
 
-    <q-footer elevated class="bg-grey-8 text-white">footer</q-footer>
+    <q-footer elevated class="bg-grey-9 text-white">
+      <div class="row justify-center">footer &copy; 2019</div>
+    </q-footer>
   </q-layout>
 </template>
 
