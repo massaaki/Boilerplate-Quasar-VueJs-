@@ -24,6 +24,7 @@ export function retrieveToken({
       })
       .then(response => {
         const token = response.data.access_token;
+        axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         commit("retrieveveToken", token);
         localStorage.setItem("access_token", token);
         resolve(response);
@@ -35,7 +36,7 @@ export function retrieveToken({
 };
 
 export function retrieveUser(context) {
-  axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
+  // axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
   return new Promise((resolve, reject) => {
     axiosInstance
       .get("user")
