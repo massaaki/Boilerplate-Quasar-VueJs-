@@ -1,15 +1,15 @@
 <template>
   <div id="lp">
-    <h1 class="row justify-center">Landing page</h1>
+    <!-- <h1 class="row justify-center">Landing page</h1> -->
 
-    <div class="q-pa-md">
+    <section>
       <q-parallax>
         <template v-slot:media>
-          <img src="../../assets/bg.jpg" />
+          <img src="../../assets/bg.jpg" class="background" />
         </template>
         <!-- <template v-slot:media>
           <video
-            class="videoLayout"
+            class="background"
             poster="https://cdn.quasar.dev/img/polina.jpg"
             autoplay
             loop
@@ -35,7 +35,7 @@
           </div>
         </template>
       </q-parallax>
-    </div>
+    </section>
 
     <div class="row justify-center">
       <div class="animated bounce infinite">
@@ -76,7 +76,7 @@ export default {};
 img {
   max-width: 80px;
 }
-.videoLayout {
+.background {
   width: 100%;
 }
 </style>
