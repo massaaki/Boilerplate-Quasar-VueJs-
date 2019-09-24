@@ -2,7 +2,9 @@
   <div>
     <h1 class="row justify-center">Landing page</h1>
     <div class="row justify-center">
-      <img src="../../assets/robo-quasar-logo-full.svg" />
+      <div class="animated bounce infinite">
+        <img src="../../assets/robo-quasar-logo-full.svg" />
+      </div>
     </div>
     <div class="row justify-center">
       <q-btn
@@ -28,5 +30,11 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+.animated {
+  animation-duration: 1s;
+}
+img {
+  max-width: 80px;
+}
 </style>
