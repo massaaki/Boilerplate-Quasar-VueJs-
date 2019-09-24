@@ -44,7 +44,9 @@ module.exports = function (ctx) {
       //            (not treeshaking Quasar; biggest bundle size; convenient)
       all: 'auto',
 
-      components: [],
+      components: [
+        'QParallax'
+      ],
       directives: [],
 
       // Quasar plugins
