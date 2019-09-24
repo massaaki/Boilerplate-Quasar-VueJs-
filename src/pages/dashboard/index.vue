@@ -1,6 +1,6 @@
 <template>
   <div>
-    Home
+    Hello, {{user.name}}
     <div class="q-pa-md">
       <q-btn color="primary" @click="showNotif" label="Mostrar notificação de exemplo"></q-btn>
     </div>
@@ -11,6 +11,11 @@
 import { Notify } from "quasar";
 export default {
   name: "home",
+  computed: {
+    user() {
+      return this.$store.state.auth.user;
+    }
+  },
   methods: {
     showNotif() {
       this.$q.notify({

@@ -25,10 +25,23 @@ export function retrieveToken({
       .then(response => {
         const token = response.data.access_token;
         commit("retrieveveToken", token);
-        commit("setUserEmail", credentials.username);
         localStorage.setItem("access_token", token);
         resolve(response);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
 
+export function retrieveUser(context) {
+  axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
+  return new Promise((resolve, reject) => {
+    axiosInstance
+      .get("user")
+      .then(response => {
+        context.commit("setUser", response.data);
+        resolve(response);
       })
       .catch(error => {
         reject(error);

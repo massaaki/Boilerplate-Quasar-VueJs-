@@ -15,3 +15,7 @@ export function setUserEmail(state, payload) {
   console.log("email..: ", payload);
   state.email = payload
 }
+
+export function setUser(state, payload) {
+  state.user = payload
+}
