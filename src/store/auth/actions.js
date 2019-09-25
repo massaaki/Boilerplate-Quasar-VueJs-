@@ -2,6 +2,10 @@ import {
   axiosInstance
 } from 'boot/axios'
 
+import {
+  Loading
+} from 'quasar'
+
 export function getFoo({
   commit
 }) {
@@ -16,6 +20,7 @@ export function getFoo({
 export function retrieveToken({
   commit
 }, credentials) {
+  Loading.show();
   return new Promise((resolve, reject) => {
     axiosInstance
       .post("login", {
@@ -25,18 +30,21 @@ export function retrieveToken({
       .then(response => {
         const token = response.data.access_token;
         axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+        console.log("token", token);
         commit("retrieveveToken", token);
         localStorage.setItem("access_token", token);
         resolve(response);
+        Loading.hide();
       })
       .catch(error => {
+        Loading.hide();
         reject(error);
       });
   });
 };
 
 export function retrieveUser(context) {
-  // axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
+  axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
   return new Promise((resolve, reject) => {
     axiosInstance
       .get("user")
@@ -51,6 +59,7 @@ export function retrieveUser(context) {
 };
 
 export function register(context, data) {
+  Loading.show();
   return new Promise((resolve, reject) => {
     axiosInstance
       .post("register", {
@@ -60,12 +69,16 @@ export function register(context, data) {
       })
       .then(response => {
         const token = response.data.access_token;
+        axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+        console.log("token", token);
         localStorage.setItem("access_token", token);
         context.commit("retrieveveToken", token);
         resolve(response);
+        Loading.hide();
       })
       .catch(error => {
         reject(error);
+        Loading.hide();
       });
   });
 };
@@ -73,6 +86,7 @@ export function register(context, data) {
 export function destroyToken(context) {
   // axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token;
   if (context.getters.loggedIn) {
+    Loading.show();
     return new Promise((resolve, reject) => {
       axiosInstance
         .post("/logout")
@@ -80,11 +94,13 @@ export function destroyToken(context) {
           localStorage.removeItem("access_token");
           context.commit("destroyToken");
           resolve(response);
+          Loading.hide();
         })
         .catch(error => {
           localStorage.removeItem("access_token");
           context.commit("destroyToken");
           reject(error);
+          Loading.hide();
         });
     });
   }
