@@ -4,10 +4,10 @@
       <div class="row justify-center">
         <q-card class="my-card">
           <h1 class="row justify-center">Login</h1>
-          <p class="row justify-center">
+          <!-- <p class="row justify-center">
             Axios Test..: &nbsp;
             <b>{{foo}}</b>
-          </p>
+          </p>-->
 
           <div class="q-pa-md">
             <q-form @submit="onSubmit" class="q-gutter-md">
@@ -26,10 +26,10 @@
           </div>
         </q-card>
       </div>
-      <p>
+      <!-- <p>
         <b>access_token</b>
         test: {{token}}
-      </p>
+      </p>-->
     </div>
   </div>
 </template>
@@ -44,29 +44,31 @@ export default {
     };
   },
   computed: {
-    foo() {
-      return this.$store.state.auth.foo;
-    },
-    token() {
-      return this.$store.state.auth.token;
-    }
+    // foo() {
+    //   return this.$store.state.auth.foo;
+    // },
+    // token() {
+    //   return this.$store.state.auth.token;
+    // }
   },
   mounted() {
-    console.log("hello");
-    this.$store.dispatch("auth/getFoo");
+    // console.log("Getting foo element");
+    // this.$store.dispatch("auth/getFoo");
   },
   methods: {
-    onSubmit() {
-      console.log("login");
-      console.log("username", this.username, " | Password", this.password);
-      this.$store
+    async onSubmit() {
+      // this.$q.loading.show();
+      // console.log("login");
+      // console.log("username", this.username, " | Password", this.password);
+      await this.$store
         .dispatch("auth/retrieveToken", {
           username: this.username,
           password: this.password
         })
         .then(response => {
-          console.log("token..:", response);
+          // console.log("token..:", response);
           this.$router.push({ name: "dashboard-index" });
+          // this.$q.loading.hide();
         });
     }
   }
