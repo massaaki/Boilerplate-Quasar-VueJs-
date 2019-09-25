@@ -119,10 +119,8 @@ export default {
     this.$store.dispatch("auth/retrieveUser");
   },
   methods: {
-    logout() {
-      console.log("destroy token");
-
-      this.$store.dispatch("auth/destroyToken").then(response => {
+    async logout() {
+      await this.$store.dispatch("auth/destroyToken").then(response => {
         this.$router.push({ name: "login" });
       });
     }
